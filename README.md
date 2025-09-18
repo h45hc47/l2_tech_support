@@ -31,9 +31,10 @@ Your Technical Support
 Hello!
 
 Thank you for contacting us. I have analyzed your request and explain why it is not working and how to fix it.
-1. Non-existent REST endpoint — /api/v2/gettxout/<txid> is Bitcoin Core endpoint. In Blockbook REST you need to use `GET /api/v2/utxo/<txid>`.
+1. Non-existent REST endpoint — /api/v2/gettxout/<txid> is Bitcoin Core endpoint. In Blockbook REST you need to use `GET /api/v2/utxo/<txid>` ([docs](https://github.com/trezor/blockbook/blob/master/docs/api.md#get-utxo)).
 2. The problematic syntax of curl is that you have a `--request GET \ --url` with \ and spaces in the middle of the string. This will break the shell command.
 3. API key header — there no need for the key.
+4. Attempt to get data from two addresses at once in one request — Blockbook REST endpoints expect a single resource in request (for example, /api/v2/address/<address>). A request for two addresses in the same URL at once will not work. You need to send separate requests for multiple addresses ([docs](https://github.com/trezor/blockbook/blob/master/docs/api.md#get-utxo)).
 
 ### Here is a corrected working example
 ```bash
@@ -46,14 +47,14 @@ Your Technical Support
 
 
 # 3.  DOGE blockbook
-Запрос к DOGE
+Запрос к DOGE ([docs](https://github.com/trezor/blockbook/blob/master/docs/api.md#status)).
 ```bash
 curl -sS \
   --request GET \
   --url "https://doge1.trezor.io/api/v2/status" \
   --header "Accept: application/json"
 ```
-Ответ. Нас интересует bestHeight, оно совпадает с количеством блоков на [https://blockchair.com/dogecoin](Blockchair)
+Ответ. Нас интересует bestHeight, оно совпадает с количеством блоков на [Blockchair](https://blockchair.com/dogecoin).
 ```json
 {
   "blockbook": {
