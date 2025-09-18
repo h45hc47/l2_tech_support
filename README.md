@@ -53,7 +53,7 @@ curl -sS \
   --url "https://doge1.trezor.io/api/v2/status" \
   --header "Accept: application/json"
 ```
-Ответ. Нас интересует bestHeight, он совпадает с количеством блоков на [https://blockchair.com/dogecoin](Blockchair)
+Ответ. Нас интересует bestHeight, оно совпадает с количеством блоков на [https://blockchair.com/dogecoin](Blockchair)
 ```json
 {
   "blockbook": {
