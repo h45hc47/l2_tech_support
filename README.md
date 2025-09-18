@@ -48,7 +48,10 @@ Your Technical Support
 # 3.  DOGE blockbook
 Запрос к DOGE
 ```bash
-curl -sS -H "Accept: application/json" "https://doge1.trezor.io/api/v2/status"
+curl -sS \
+  --request GET \
+  --url "https://doge1.trezor.io/api/v2/status" \
+  --header "Accept: application/json"
 ```
 Ответ. Нас интересует blocks, он совпадает с количеством блоков на [https://blockchair.com/dogecoin](Blockchair)
 ```json
