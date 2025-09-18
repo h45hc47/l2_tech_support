@@ -41,6 +41,9 @@ curl --request GET --url \
 https://btc4.trezor.io/api/v2/utxo/<address>
 ```
 
+Always in touch,<br/>
+Your Technical Support
+
 
 # 3.  DOGE blockbook
 Запрос к DOGE
